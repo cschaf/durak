@@ -26,7 +26,7 @@ if (Meteor.isServer) {
     });
 
     Meteor.publish('users', function(){
-        Meteor.users.find();
+        return Meteor.users.find();
     });
 }
 
