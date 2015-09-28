@@ -1,0 +1,9 @@
+.meteor\local
+settings.json
+DS_Store
+*.swp
+*~
+.idea
+*.iml
+bin
+node_modules
