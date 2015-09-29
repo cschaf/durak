@@ -24,6 +24,17 @@ Template.userList.helpers({
     }
 });
 
+Template.deck.helpers({
+    numberOfCardsInDeck: function () {
+        var  number = 0;
+        Games.find({inProgress: true}).forEach(function(game){
+            number = game.deck.length;
+        });
+
+        return number;
+    }
+});
+
 Template.userItem.events({
     'click button': function(evt, template){
         Meteor.call('createGame', template.data._id);

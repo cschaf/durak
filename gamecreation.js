@@ -28,7 +28,7 @@ GameFactory.dealPlayers = function (players, deck) {
 function dealTable (deck){
     var table = {
         trump: deck.shift(),
-        ground: [],
+        ground: [deck.shift(), deck.shift(), deck.shift(),deck.shift()],
         pile: []
     };
 

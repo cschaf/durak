@@ -3,6 +3,8 @@
     {{#if currentUser}}
         {{> status}}
         {{> table}}
+        {{> hand}}
+        {{> deck}}
     {{/if}}
 </template>
 
@@ -10,6 +12,7 @@
     <p>
         <a href="/">_&larr; Home </a>
     </p>
+
     <h2> Game between you and {{otherPlayer.username}}
         {{#if inProgress}}
             {{#if yourTurn}}
@@ -20,18 +23,46 @@
 
 
 <template name="table">
-    <h2> Table</h2>
-    {{#each table.ground}}
-        {{> card}}
-    {{/each}}
-    <h2> Tump </h2>
-    {{> card table.trump}}
-
+    <div class="ground">
+        <div class="groundCards">
+            <h2> Table</h2>
+            {{#each table.ground}}
+                {{> card}}
+            {{/each}}
+        </div>
+        <div class="verticalBorder"></div>
+        <div class="trump">
+            <h2> Tump </h2>
+            {{> card table.trump}}
+        </div>
+    </div>
 </template>
 
 <template name="card">
     <div class="card {{suit}}">
         <div>{{name}}</div>
         <div>{{suit}}</div>
+    </div>
+</template>
+
+<template name='hand'>
+    <div id='hand'>
+        <h2> Hand </h2>
+        {{#each player.hand}}
+            <div class='card {{suit}}'>
+                <div>{{name}}</div>
+                <div>{{suit}}</div>
+            </div>
+        {{/each}}
+    </div>
+</template>
+
+<template name='deck'>
+    <div id='deck'>
+        <h2> Deck </h2>
+        <div class='card'>
+            <div>{{numberOfCardsInDeck}}</div>
+            <div>Left</div>
+        </div>
     </div>
 </template>
